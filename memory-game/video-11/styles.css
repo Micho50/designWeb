@@ -1,0 +1,108 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: #060AB2;
+}
+
+.memory-game {
+  width: 640px;
+  height: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+}
+
+.memory-card {
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform .2s;
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+  background: #1C7CCC;
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
+
+.container_grid {
+  display: grid;
+  grid-gap: 50px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 600px 50px;
+  grid-template-areas: 
+  "timer"
+  "section"
+  "footer";
+}
+#timer { 
+  grid-area: timer;
+}
+#section { 
+  grid-area: section;
+}
+#footer { 
+  grid-area: footer;
+}
+
+.grid_container { 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 50% 50%;
+  grid-template-areas:
+    "inspiration nom moi"
+    "lien design moi";
+}
+#inspiration { 
+  grid-area: inspiration;
+}
+#lien {
+  grid-area: lien;
+}
+#nom { 
+  grid-area: nom;
+  display: flex;
+  justify-content: center;
+}
+#design { 
+  grid-area: design;
+  display: flex;
+  justify-content: center;
+}
+#mail {
+  grid-area: moi;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#moi { 
+  border-radius: 30px;
+}
